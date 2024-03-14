@@ -1,24 +1,68 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.scss";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+/* Query Selectors
+ */
+const app = document.querySelector<HTMLDivElement>("#app");
+const button = document.querySelector<HTMLDivElement>("#apiCall");
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+if (!app || !button) {
+  throw new Error("there is an error with the selector");
+}
+
+/* Global Variables
+ */
+let screenSelect = 0;
+
+/* SCREEN SELECTION
+ */
+
+if (screenSelect === 0) {
+  app.innerHTML = "SCREEN 0 WElCOME";
+} else if (screenSelect === 1) {
+  app.innerHTML = "SCREEN 1 GAME SELECT ";
+} else if (screenSelect === 2) {
+  app.innerHTML = "SCREEN 2 LOG IN ";
+} else if (screenSelect === 3) {
+  app.innerHTML = "Screen 3 GAMEPLAY ";
+}
+
+/*
+  API call to get questions 
+*/
+
+let questions: Object;
+
+async function APICall() {
+  // Define the API URL
+  const apiUrl = "https://opentdb.com/api.php?amount=12&type=multiple";
+
+  // Make a GET request
+  console.log(
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        questions = data;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+  );
+}
+
+APICall();
+
+/*
+  Event Listeners 
+*/
+
+function checkAPICall() {
+  console.log(questions);
+}
+
+button.addEventListener("click", checkAPICall);
