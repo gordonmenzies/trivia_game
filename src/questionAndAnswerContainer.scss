@@ -1,0 +1,42 @@
+// NEW FILE
+.questionAndAnswer__container {
+  width: 70%;
+
+  .question__container {
+    background-color: blue;
+    margin-top: 15%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    color: white;
+  }
+
+  .answer__container {
+    text-align: center;
+    margin-top: 50px;
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20%;
+
+    .answer__text {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      border: white solid 4px;
+      background-color: navy;
+      border-radius: 10px;
+      color: white;
+    }
+    .answer__text:hover {
+      background-color: orange;
+    }
+  }
+  .lifeline__img {
+    height: 70px;
+    margin-left: 160px;
+    margin-top: 20px;
+  }
+}
