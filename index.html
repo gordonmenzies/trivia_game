@@ -13,12 +13,22 @@
     <button id="nextQuestion">
       next Question
     </button>
+    <button id="myBtn">Open Modal</button>
+    <p id="invisible"></p>
     <div id="app">
       <section class="background__container">
         <!-- LEFT HAND SIDE COLUMN TO GO HERE -->
         <section class="timerScore__container">
           <div class="userName">Username</div>
           <div class="timer">Timer</div>
+        </section>
+        <!-- END GAME MODAL  -->
+        <section class="endGame__modalContainer">
+        <!--END OF GAME MESSAGE -->
+        <div class="endGame__textContainer">
+          <h1 class="endGame__text">CONGRATULATIONS YOU HAVE WON</h1>
+          <h1 class="endGame__playAgain">Click Here To Play Again</h1>
+        </div>
         </section>
          <!-- QUESTION AND ANSWER GROUP -->
         <section class="questionAndAnswer__container">
@@ -31,30 +41,30 @@
             <h1 class="answer__text" id="answerThree">ANSWER 3</h1>
             <h1 class="answer__text" id="answerFour">ANSWER 4</h1>
           </div>
-        </section>
-        <!-- MONEY TREE  -->
-        <section class="moneyTree__container">
           <div class="lifeline__container">
             <img class="lifeline__img" src='./src/images/phoneafriendwebp.webp'></img>
             <img class="lifeline__img" src='./src/images/asktheaudience.webp'></img>
-            <img class="lifeline__img" src='./src/images/5050.webp'></img>
+            <img class="lifeline__img" id="fiftyFifty" src='./src/images/5050.webp'></img>
           </div>
+        </section>
+        <!-- MONEY TREE  -->
+        <section class="moneyTree__container">
           <div class="moneytree__textContainer">
-            <h2 class="moneyTree__text">15 1,000,000</h2>
-            <h2 class="moneyTree__text">14 500,000</h2>
-            <h2 class="moneyTree__text">13 250,000</h2>
-            <h2 class="moneyTree__text">12 125,000</h2>
-            <h2 class="moneyTree__text">11 64,000</h2>
-            <h2 class="moneyTree__text">10 32,000</h2>
-            <h2 class="moneyTree__text">9 16,000</h2>
-            <h2 class="moneyTree__text">8 8000</h2>
-            <h2 class="moneyTree__text">7 4000</h2>
-            <h2 class="moneyTree__text">6 2000</h2>
-            <h2 class="moneyTree__text">5 1000</h2>
-            <h2 class="moneyTree__text">4 500</h2>
-            <h2 class="moneyTree__text">3 300</h2>
-            <h2 class="moneyTree__text">2 200</h2>
-            <h2 class="moneyTree__text">1 100</h2>
+            <h2 class="moneyTree__text" id="bank">1,000,000</h2>
+            <h2 class="moneyTree__text">500,000</h2>
+            <h2 class="moneyTree__text">250,000</h2>
+            <h2 class="moneyTree__text">125,000</h2>
+            <h2 class="moneyTree__text">64,000</h2>
+            <h2 class="moneyTree__text" id="bank">32,000</h2>
+            <h2 class="moneyTree__text">16,000</h2>
+            <h2 class="moneyTree__text">8000</h2>
+            <h2 class="moneyTree__text">4000</h2>
+            <h2 class="moneyTree__text">2000</h2>
+            <h2 class="moneyTree__text" id="bank">1000</h2>
+            <h2 class="moneyTree__text">500</h2>
+            <h2 class="moneyTree__text">300</h2>
+            <h2 class="moneyTree__text">200</h2>
+            <h2 class="moneyTree__text">100</h2>
           </div>
         </section>
       </section> 
