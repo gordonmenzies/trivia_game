@@ -1,0 +1,12 @@
+@import "./questionAndAnswerContainer.scss";
+@import "./moneyTreeContainer.scss";
+@import "./endGameContainer.scss";
+
+.background__container {
+  background-image: url(../images/base_image.jpg);
+  display: flex;
+}
+
+#invisible {
+  display: none;
+}

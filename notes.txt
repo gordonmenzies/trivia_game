@@ -1,0 +1,62 @@
+PSEUDO CODE 
+
+WELCOME SCREEN 
+    "WELCOME TO THE WHO WANTS TO BE A MILLIONAIRE QUESTION GAME"
+
+
+    Start Game 
+    Load in 12 questions
+        first question 
+            timer to answer
+                - * Oppurtunity to Bank * - 
+                use lifeline 
+                phone a friend (10 second google)
+                ask the audience 
+                50:50 
+            timer runs out 
+            question answered correctly
+                next question 
+            question answered incorrectly
+                game ends 
+                    - * Store result * - 
+                    - * reset when the player can play again * - 
+                High Scores
+
+        next question
+    
+    1 	£500
+    2 	£1,000
+        oppurtunity to bank 
+        oppurtunity to set second safety net between 50,000 and 500,000
+
+    3 	£2,000
+    4 	£5,000
+    5 	£10,000
+    6 	£20,000
+    7 	£50,000
+        default second oppurtunity to bank 
+
+    8 	£75,000
+    9 	£150,000
+    10 	£250,000
+    11 	£500,000
+        last oppurtunity to bank
+
+    12 	£1,000,000
+
+
+Require Users
+    Who can win the most money in a week 
+    Who can win the most money in a month 
+
+Users 
+    User log in 
+
+Playing Music 
+    https://www.youtube.com/watch?app=desktop&v=MForOVuA6hs
+
+
+Modifiers 
+    Difficulty 
+    Topics 
+
