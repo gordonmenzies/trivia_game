@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <button id="apiCall">
+      start game
+    </button>
+    <button id="nextQuestion">
+      next Question
+    </button>
+    <button id="myBtn">Open Modal</button>
+    <p id="invisible"></p>
+    <div id="app">
+      <section class="background__container">
+        <!-- LEFT HAND SIDE COLUMN TO GO HERE -->
+        <section class="timerScore__container">
+          <div class="userName">Username</div>
+          <div class="timer">Timer</div>
+        </section>
+        <!-- END GAME MODAL  -->
+        <section class="endGame__modalContainer">
+        <!--END OF GAME MESSAGE -->
+        <div class="endGame__textContainer">
+          <h1 class="endGame__text">CONGRATULATIONS YOU HAVE WON</h1>
+          <h1 class="endGame__playAgain">Click Here To Play Again</h1>
+        </div>
+        </section>
+         <!-- QUESTION AND ANSWER GROUP -->
+        <section class="questionAndAnswer__container">
+          <div class="question__container">
+            <h1 class="question__text">QUESTION TEXT</h1>
+          </div>
+          <div class="answer__container">
+            <h1 class="answer__text" id="answerOne">ANSWER 1</h1>
+            <h1 class="answer__text" id="answerTwo">ANSWER 2</h1>
+            <h1 class="answer__text" id="answerThree">ANSWER 3</h1>
+            <h1 class="answer__text" id="answerFour">ANSWER 4</h1>
+          </div>
+          <div class="lifeline__container">
+            <img class="lifeline__img" id="skip" src='./src/images/skip.png'></img>
+            <img class="lifeline__img" src='./src/images/asktheaudience.webp'></img>
+            <img class="lifeline__img" id="fiftyFifty" src='./src/images/5050.webp'></img>
+          </div>
+        </section>
+        <!-- MONEY TREE  -->
+        <section class="moneyTree__container">
+          <div class="moneytree__textContainer">
+            <h2 class="moneyTree__text" id="bank">1,000,000</h2>
+            <h2 class="moneyTree__text">500,000</h2>
+            <h2 class="moneyTree__text">250,000</h2>
+            <h2 class="moneyTree__text">125,000</h2>
+            <h2 class="moneyTree__text">64,000</h2>
+            <h2 class="moneyTree__text" id="bank">32,000</h2>
+            <h2 class="moneyTree__text">16,000</h2>
+            <h2 class="moneyTree__text">8000</h2>
+            <h2 class="moneyTree__text">4000</h2>
+            <h2 class="moneyTree__text">2000</h2>
+            <h2 class="moneyTree__text" id="bank">1000</h2>
+            <h2 class="moneyTree__text">500</h2>
+            <h2 class="moneyTree__text">300</h2>
+            <h2 class="moneyTree__text">200</h2>
+            <h2 class="moneyTree__text">100</h2>
+          </div>
+        </section>
+      </section> 
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

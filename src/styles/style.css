@@ -1,0 +1,47 @@
+.background__container {
+  background-image: url(./images/base_image.jpg);
+  display: flex;
+}
+
+.questionAndAnswer__container {
+  width: 70%;
+  color: white;
+}
+.questionAndAnswer__container .question__container {
+  background-color: blue;
+  margin-top: 30%;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.questionAndAnswer__container .answer__container {
+  background-color: navy;
+  text-align: center;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 20% 20%;
+}
+.questionAndAnswer__container .answer__container .answer__text {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.moneyTree__container {
+  width: 30%;
+  background-color: navy;
+}
+.moneyTree__container .lifeline__container {
+  height: 100px;
+}
+.moneyTree__container .lifeline__container .lifeline__img {
+  height: 80px;
+  margin-left: 30px;
+}
+.moneyTree__container .moneytree__textContainer {
+  margin-left: 40%;
+}
+.moneyTree__container .moneytree__textContainer .moneyTree__text {
+  color: white;
+}/*# sourceMappingURL=style.css.map */
