@@ -1,10 +1,39 @@
 // NEW FILE
 .questionAndAnswer__container {
   width: 70%;
+  margin-left: 100px;
+
+  #apiCall {
+    margin-left: 100px;
+  }
+
+  .welcome__container {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 3%;
+    top: 10%;
+    width: 75%; /* Full width */
+    height: 22%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: purple; /* Fallback color */
+    border-radius: 10px;
+
+    .welcome__text {
+      margin-top: 40px;
+      text-align: center;
+      border-radius: 10px;
+      color: white;
+    }
+
+    #startGame {
+      margin-left: 43%;
+    }
+  }
 
   .question__container {
     background-color: blue;
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;

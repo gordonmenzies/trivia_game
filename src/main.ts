@@ -5,9 +5,16 @@ import { Question } from "./questionType";
   Event Listeners
 */
 
-//  Testing Buttons
+//  WELCOME SELECTORS
 
-const button = document.querySelector<HTMLDivElement>("#apiCall");
+const button = document.querySelector<HTMLDivElement>("#startGame");
+
+const welcomeContainer = document.querySelector<HTMLDivElement>(
+  ".welcome__container"
+);
+
+// ENDGAME SELECTORS
+
 const nextQuestionButton =
   document.querySelector<HTMLDivElement>("#nextQuestion");
 const modal = document.querySelector<HTMLDivElement>(
@@ -50,8 +57,8 @@ if (!lifeLineArray || !moneyTreeArray) {
   throw new Error("there is an error with the lifelines or moneytree");
 }
 
-if (!invisible) {
-  throw new Error("there is an error with invisible");
+if (!invisible || !welcomeContainer) {
+  throw new Error("there is an error with invisible or welcome container");
 }
 
 if (!modal || !modalButton || !questionContainer || !answerContainer) {
@@ -239,7 +246,7 @@ const lifelineSelected = (event: Event): void => {
 
 const startGame = (): void => {
   questionIndex = 0;
-  questionContainer.style.display = "inline";
+  welcomeContainer.style.display = "none";
   answerContainer.style.display = "inline";
   lifeLineArray.forEach((lifeline) => {
     lifeline.style.display = "inline";

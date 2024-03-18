@@ -3,20 +3,16 @@
 a basic trivia game built for an example project for \_Nology
 
 WHAT TO DO NOW
-////// LifeLines - Skip Question - Ask the audience
 ////// timer to tick dwn for each question
 ////// mobile version
 
 STILL TO Do
 
-////// wait until page load to do something
-
 Extra Features
 ////// Settings to change the question topics and difficulty
 
 Features
-////// Ask the audience - Skip Question
-////// Phone a friend
+////// Ask the audience
 ////// Timer
 
 Componenets to add to features
