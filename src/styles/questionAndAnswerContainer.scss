@@ -80,4 +80,23 @@
     margin-left: 160px;
     margin-top: 20px;
   }
+
+  #skip {
+    margin-left: 32%;
+    scale: 1.2;
+  }
+
+  .timer__container {
+    display: none;
+    background-color: white;
+    width: 30%;
+    margin-left: 35%;
+    text-align: center;
+    padding-top: 0.5px;
+    padding-bottom: 0.5px;
+  }
+
+  .timer__text {
+    font-size: 25px;
+  }
 }
