@@ -1,31 +1,65 @@
-/* The Modal (background) */
-.endGame__modalContainer {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 15%;
-  top: 15%;
-  width: 60%; /* Full width */
-  height: 60%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: purple; /* Fallback color */
-  border-radius: 10px;
-
-  .endGame__text {
-    background-color: blue;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
+@media screen and (max-width: 768px) {
+  .endGame__modalContainer {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 15%;
+    top: 15%;
+    width: 60%;
+    height: 60%;
+    overflow: auto;
+    background-color: purple;
     border-radius: 10px;
-    color: white;
-  }
 
-  .endGameStartAgain {
-    margin-left: 30%;
-    background-color: blue;
-    border: 2px solid white;
-    border-radius: 5px;
-    font-size: 20px;
-    color: white;
+    .endGame__text {
+      background-color: blue;
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .endGameStartAgain {
+      margin-left: 30%;
+      background-color: blue;
+      border: 2px solid white;
+      border-radius: 5px;
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .endGame__modalContainer {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 15%;
+    top: 15%;
+    width: 60%;
+    height: 60%;
+    overflow: auto;
+    background-color: purple;
+    border-radius: 10px;
+
+    .endGame__text {
+      background-color: blue;
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .endGameStartAgain {
+      margin-left: 30%;
+      background-color: blue;
+      border: 2px solid white;
+      border-radius: 5px;
+      font-size: 20px;
+      color: white;
+    }
   }
 }

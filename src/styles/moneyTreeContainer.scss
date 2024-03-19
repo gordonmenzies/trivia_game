@@ -1,28 +1,54 @@
-.moneyTree__container {
-  width: 30%;
-  border-radius: 10px;
+@media screen and (max-width: 768px) {
+  .moneyTree__container {
+    width: 30%;
+    border-radius: 10px;
+    display: none;
 
-  .lifeline__container {
-    height: 100px;
-  }
+    .moneytree__textContainer {
+      margin-left: 40%;
 
-  .moneytree__textContainer {
-    margin-left: 40%;
+      .moneyTree__text {
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        border: white solid 2px;
+        border-radius: 5px;
+        margin-right: 60px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: navy;
+      }
 
-    .moneyTree__text {
-      text-align: center;
-      color: white;
-      font-size: 14px;
-      border: white solid 2px;
-      border-radius: 5px;
-      margin-right: 60px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      background-color: navy;
+      #bank {
+        color: orange;
+      }
     }
+  }
+}
 
-    #bank {
-      color: orange;
+@media screen and (min-width: 768px) {
+  .moneyTree__container {
+    width: 30%;
+    border-radius: 10px;
+
+    .moneytree__textContainer {
+      margin-left: 40%;
+
+      .moneyTree__text {
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        border: white solid 2px;
+        border-radius: 5px;
+        margin-right: 60px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: navy;
+      }
+
+      #bank {
+        color: orange;
+      }
     }
   }
 }

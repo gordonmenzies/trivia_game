@@ -6,20 +6,15 @@ import { Question } from "./questionType";
 */
 
 //  WELCOME SELECTORS
-
 const startGameButton = document.querySelector<HTMLDivElement>(".startGame");
 const welcomeContainer = document.querySelector<HTMLDivElement>(
   ".welcome__container"
 );
 
 // ENDGAME SELECTORS
-
-// const nextQuestionButton =
-//   document.querySelector<HTMLDivElement>("#nextQuestion");
 const modal = document.querySelector<HTMLDivElement>(
   ".endGame__modalContainer"
 );
-// const modalButton = document.querySelector<HTMLButtonElement>("#myBtn");
 const endOfGameMessage =
   document.querySelector<HTMLHeadingElement>(".endGame__text");
 const playAgain =
@@ -27,7 +22,7 @@ const playAgain =
 
 const invisible = document.querySelector<HTMLParagraphElement>("#invisible");
 
-//  Questions and Answer Containers
+//  QUESTION AND ANSWER SELECTORS
 const questionContainer = document.querySelector<HTMLDivElement>(
   ".question__container"
 );
@@ -37,7 +32,7 @@ const answerArray =
 const answerContainer =
   document.querySelector<HTMLDivElement>(".answer__container");
 
-//  Lifelines & Moneytree
+// LIFELINE AND MONEYTREE SELECTORS
 const lifeLineArray =
   document.querySelectorAll<HTMLImageElement>(".lifeline__img");
 const moneyTreeArray =
@@ -67,7 +62,25 @@ if (!endOfGameMessage || !playAgain) {
   throw new Error("there is something wrong with the modal");
 }
 
-/* Global Variables
+/*
+  MOBILE ONLY SELECTORS
+*/
+
+const mobileMoneyIndicatorContainer = document.querySelector<HTMLDivElement>(
+  ".moneyTree__container--mobile"
+);
+
+const mobileMoneyText = document.querySelector<HTMLHeadingElement>(
+  ".moneyTree__text--mobile"
+);
+
+if (!mobileMoneyIndicatorContainer || !mobileMoneyText) {
+  throw new Error(
+    " there is something wrong with the mobile money tree indicator"
+  );
+}
+
+/* GLOBAL VARIABLES
  */
 let questionIndex = 0;
 let questionArray: Question[] = [];
@@ -91,9 +104,6 @@ async function APICall(apiUrl: string) {
         questionArray.push(question);
       });
       console.log("question array", questionArray);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
     });
 
   return questionArray;
@@ -102,12 +112,11 @@ async function APICall(apiUrl: string) {
 APICall(apiBuiltUrl);
 
 /* 
-  Core Functionality Methods 
+  CORE FUNCTIONALITY METHODS
 */
 
 const populateQuestionsAndAnswers = (sortedAnswers: string[]): void => {
   question.innerHTML = questionArray[questionIndex].question;
-  console.log("sorted Answers", sortedAnswers);
   for (let i: number = 0; i < sortedAnswers.length; i++) {
     answerArray[i].innerHTML = sortedAnswers[i];
   }
@@ -128,7 +137,6 @@ const sortAnswers = (question: Question) => {
   let answerArray: string[] = [];
   answerArray.push(question.correct_answer);
   correctAnswer = handleHTMLEncoding(answerArray)[0];
-  console.log("correct answer in answer Array", answerArray[0]);
   question.incorrect_answers.forEach((answer: string) => {
     answerArray.push(answer);
   });
@@ -150,8 +158,6 @@ const nextQuestion = (): void => {
     answerArray.forEach((answer) => {
       answer.style.display = "block";
     });
-    console.log(questionIndex);
-    console.log(correctAnswer);
   }
 };
 
@@ -159,34 +165,49 @@ const nextQuestion = (): void => {
 const answerSelected = (event: Event): void => {
   const button = event.currentTarget as HTMLDivElement;
   if (button.innerHTML === correctAnswer) {
-    console.log("correct answer");
     nextQuestion();
   } else {
     endGame();
-    console.log("incorrect answer ");
   }
 };
 
+// the function that runs the process to the end the game
 const endGame = () => {
+  // remove questions from question array
   questionArray = [];
-  console.log("question array end game", questionArray);
+
+  // prepare screeen for end of game message
+  setHTMLElementsToNone();
+
+  // prepare message to show at end of game
+  if (questionIndex === 14) {
+    endOfGameMessage.innerHTML = "CONGRATULATIONS YOU HAVE WON";
+  } else if (questionIndex === 0) {
+    endOfGameMessage.innerHTML = `Unfortunately you failed to answer a single question correctly. you therfore go away with nothing`;
+  } else if (questionIndex > 0 && questionIndex < 4) {
+    endOfGameMessage.innerHTML = `You did not answer enough questions to get to the first safe point, therefore you win zero money`;
+  } else if (questionIndex >= 4 && questionIndex < 8) {
+    endOfGameMessage.innerHTML = `Congratulations you have won £1000`;
+  } else if (questionIndex >= 9 && questionIndex < 14) {
+    endOfGameMessage.innerHTML = `Unfortunately that answer was incorrect, however you did win quite a lot of money and will be taking home £32,000`;
+  }
+
+  // reveal end of game message
+  modal.style.display = "block";
+
+  // prepare questions and answers in case of starting again
+  APICall(apiBuiltUrl);
+  populateQuestionsAndAnswers(sortAnswers(questionArray[0]));
+};
+
+// prepare screeen for end of game message
+const setHTMLElementsToNone = () => {
   questionContainer.style.display = "none";
   answerContainer.style.display = "none";
   lifeLineArray.forEach((lifeline) => {
     lifeline.style.display = "none";
   });
-  if (questionIndex === 15) {
-    endOfGameMessage.innerHTML = "CONGRATULATIONS YOU HAVE WON";
-  } else {
-    endOfGameMessage.innerHTML = `Unfortunately that answer was incorrect, however you did win $${
-      moneyTreeArray[14 - questionIndex].innerHTML
-    }
-                                  perhaps you can be satisfied with your performance`;
-  }
-  modal.style.display = "block";
-  APICall(apiBuiltUrl);
-  populateQuestionsAndAnswers(sortAnswers(questionArray[0]));
-  console.log("questionArray", questionArray);
+  mobileMoneyIndicatorContainer.style.display = "none";
 };
 
 /*
@@ -194,10 +215,13 @@ const endGame = () => {
 */
 
 const updateMoneyTree = () => {
-  console.log("questionIndex", questionIndex);
   moneyTreeArray[
     moneyTreeArray.length - questionIndex - 1
   ].style.backgroundColor = "purple";
+
+  // for mobile
+  mobileMoneyIndicatorContainer.style.display = "block";
+  mobileMoneyText.innerHTML = moneyTreeArray[14 - questionIndex].innerHTML;
 };
 
 /*
@@ -228,12 +252,10 @@ const lifelineSelected = (event: Event): void => {
   const button = event.currentTarget as HTMLImageElement;
   switch (button.id) {
     case "fiftyFifty":
-      console.log("fiftyfifty");
       fiftyFifty();
       button.style.display = "none";
       break;
     case "skip":
-      console.log("skip");
       skipQuestion();
       button.style.display = "none";
       break;
@@ -244,9 +266,7 @@ const lifelineSelected = (event: Event): void => {
   Testing Methods
 /*/
 
-const startGame = (): void => {
-  questionIndex = 0;
-  updateMoneyTree();
+const prepareHTMLForStartOfGame = () => {
   welcomeContainer.style.display = "none";
   questionContainer.style.display = "block";
   answerContainer.style.display = "block";
@@ -254,9 +274,17 @@ const startGame = (): void => {
     answer.style.display = "block";
   });
   lifeLineArray.forEach((lifeline) => {
-    lifeline.style.display = "inline";
+    lifeline.style.display = "block";
   });
   modal.style.display = "none";
+};
+
+const startGame = (): void => {
+  questionIndex = 0;
+  prepareHTMLForStartOfGame();
+
+  updateMoneyTree();
+
   populateQuestionsAndAnswers(sortAnswers(questionArray[questionIndex]));
   moneyTreeArray.forEach((item) => {
     item.style.backgroundColor = "navy";
@@ -269,8 +297,6 @@ const startGame = (): void => {
 */
 
 startGameButton.addEventListener("click", startGame);
-// nextQuestionButton.addEventListener("click", nextQuestionTestMethod);
-// modalButton.addEventListener("click", endGameTestMethod);
 
 answerArray.forEach((button) => {
   button.addEventListener("click", answerSelected);
@@ -281,23 +307,3 @@ lifeLineArray.forEach((lifeline) => {
 });
 
 playAgain.addEventListener("click", startGame);
-
-/* Timer
- */
-let timeLeft = 30;
-const timer = document.querySelector(".timer__text");
-
-if (!timer) {
-  throw new Error("there is something wrong with the timer");
-}
-
-const countdown = () => {
-  if (timeLeft == 0) {
-    clearTimeout(timerId);
-  } else {
-    timer.innerHTML = String(timeLeft);
-    timeLeft--;
-  }
-};
-
-let timerId = setInterval(countdown, 1000);

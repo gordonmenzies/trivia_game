@@ -2,14 +2,30 @@
 @import "./moneyTreeContainer.scss";
 @import "./endGameContainer.scss";
 
-.background__container {
-  display: flex;
+@media screen and (max-width: 768px) {
+  .background__container {
+    display: flex;
+  }
+
+  #invisible {
+    display: none;
+  }
+
+  #background {
+    background-image: url(../images/base_image.jpg);
+  }
 }
 
-#invisible {
-  display: none;
-}
+@media screen and (min-width: 768px) {
+  .background__container {
+    display: flex;
+  }
 
-#background {
-  background-image: url(../images/base_image.jpg);
+  #invisible {
+    display: none;
+  }
+
+  #background {
+    background-image: url(../images/base_image.jpg);
+  }
 }
