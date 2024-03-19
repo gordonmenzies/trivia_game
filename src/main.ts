@@ -7,7 +7,7 @@ import { Question } from "./questionType";
 
 //  WELCOME SELECTORS
 
-const button = document.querySelector<HTMLDivElement>("#startGame");
+const button = document.querySelector<HTMLDivElement>(".startGame");
 
 const welcomeContainer = document.querySelector<HTMLDivElement>(
   ".welcome__container"
@@ -23,9 +23,8 @@ const modal = document.querySelector<HTMLDivElement>(
 const modalButton = document.querySelector<HTMLButtonElement>("#myBtn");
 const endOfGameMessage =
   document.querySelector<HTMLHeadingElement>(".endGame__text");
-const playAgain = document.querySelector<HTMLHeadingElement>(
-  ".endGame__playAgain"
-);
+const playAgain =
+  document.querySelector<HTMLButtonElement>(".endGameStartAgain");
 
 const invisible = document.querySelector<HTMLParagraphElement>("#invisible");
 
@@ -188,6 +187,9 @@ const endGame = () => {
   }
   modal.style.display = "block";
   APICall(apiBuiltUrl);
+  console.log(APICall(apiBuiltUrl));
+  populateQuestionsAndAnswers(sortAnswers(questionArray[0]));
+  console.log("questionArray", questionArray);
 };
 
 /*
@@ -247,6 +249,7 @@ const lifelineSelected = (event: Event): void => {
 const startGame = (): void => {
   questionIndex = 0;
   welcomeContainer.style.display = "none";
+  questionContainer.style.display = "block";
   answerContainer.style.display = "inline";
   lifeLineArray.forEach((lifeline) => {
     lifeline.style.display = "inline";
@@ -294,3 +297,39 @@ lifeLineArray.forEach((lifeline) => {
 });
 
 playAgain.addEventListener("click", startGame);
+
+// countdown
+
+// when countdown reaches 0 select answer
+// change how answers are selected
+// button for establish answer
+// selelected answer to turn orange
+
+// // Set the date we're counting down to
+// var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+
+// // Update the count down every 1 second
+// var x = setInterval(function() {
+
+//   // Get today's date and time
+//   var now = new Date().getTime();
+
+//   // Find the distance between now and the count down date
+//   var distance = countDownDate - now;
+
+//   // Time calculations for days, hours, minutes and seconds
+//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+//   // Display the result in the element with id="demo"
+//   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+//   + minutes + "m " + seconds + "s ";
+
+//   // If the count down is finished, write some text
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById("demo").innerHTML = "EXPIRED";
+//   }
+// }, 1000);
