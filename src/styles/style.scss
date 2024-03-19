@@ -3,10 +3,13 @@
 @import "./endGameContainer.scss";
 
 .background__container {
-  background-image: url(../images/base_image.jpg);
   display: flex;
 }
 
 #invisible {
   display: none;
+}
+
+#background {
+  background-image: url(../images/base_image.jpg);
 }

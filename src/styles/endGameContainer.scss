@@ -10,37 +10,22 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: purple; /* Fallback color */
   border-radius: 10px;
-}
 
-.endGame__text {
-  background-color: blue;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 10px;
-  color: white;
-}
-
-.endGame__textContainerTwo {
-  text-align: center;
-  margin-top: 20px;
-  margin-left: 160px;
-  display: grid;
-  column-gap: 2px;
-  row-gap: 2px;
-  grid-template-columns: 40% 40%;
-  grid-template-rows: 20% 20%;
-
-  .endGame__textTwo {
+  .endGame__text {
+    background-color: blue;
+    text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
-    text-align: center;
-    border: white solid 4px;
-    background-color: navy;
     border-radius: 10px;
     color: white;
   }
-  .endGame__textTwo:hover {
-    background-color: orange;
+
+  .endGameStartAgain {
+    margin-left: 30%;
+    background-color: blue;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
   }
 }

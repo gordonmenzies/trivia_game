@@ -14,24 +14,33 @@
     left: 3%;
     top: 10%;
     width: 75%; /* Full width */
-    height: 22%; /* Full height */
+    height: 80%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: purple; /* Fallback color */
     border-radius: 10px;
+    opacity: 80%;
 
     .welcome__text {
-      margin-top: 40px;
+      margin-top: 170px;
       text-align: center;
       border-radius: 10px;
       color: white;
+      font-size: 30px;
     }
-
     .startGame {
-      margin-left: 43%;
+      margin-top: 20%;
+      margin-left: 40%;
+      background-color: blue;
+      border: 2px solid white;
+      border-radius: 5px;
+      font-size: 20px;
+      color: white;
+      opacity: 100%;
     }
   }
 
   .question__container {
+    display: none;
     background-color: blue;
     margin-top: 5%;
     text-align: center;
@@ -42,6 +51,7 @@
   }
 
   .answer__container {
+    display: none;
     text-align: center;
     margin-top: 50px;
     display: grid;
@@ -51,6 +61,7 @@
     grid-template-rows: 20% 20%;
 
     .answer__text {
+      display: none;
       padding-top: 20px;
       padding-bottom: 20px;
       text-align: center;
@@ -64,6 +75,7 @@
     }
   }
   .lifeline__img {
+    display: none;
     height: 70px;
     margin-left: 160px;
     margin-top: 20px;

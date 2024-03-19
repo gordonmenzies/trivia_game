@@ -7,7 +7,7 @@ import { Question } from "./questionType";
 
 //  WELCOME SELECTORS
 
-const button = document.querySelector<HTMLDivElement>(".startGame");
+const startGameButton = document.querySelector<HTMLDivElement>(".startGame");
 
 const welcomeContainer = document.querySelector<HTMLDivElement>(
   ".welcome__container"
@@ -15,12 +15,12 @@ const welcomeContainer = document.querySelector<HTMLDivElement>(
 
 // ENDGAME SELECTORS
 
-const nextQuestionButton =
-  document.querySelector<HTMLDivElement>("#nextQuestion");
+// const nextQuestionButton =
+//   document.querySelector<HTMLDivElement>("#nextQuestion");
 const modal = document.querySelector<HTMLDivElement>(
   ".endGame__modalContainer"
 );
-const modalButton = document.querySelector<HTMLButtonElement>("#myBtn");
+// const modalButton = document.querySelector<HTMLButtonElement>("#myBtn");
 const endOfGameMessage =
   document.querySelector<HTMLHeadingElement>(".endGame__text");
 const playAgain =
@@ -44,7 +44,7 @@ const lifeLineArray =
 const moneyTreeArray =
   document.querySelectorAll<HTMLHeadingElement>(".moneyTree__text");
 
-if (!button || !nextQuestionButton) {
+if (!startGameButton) {
   throw new Error("there is an error with the selector");
 }
 
@@ -60,7 +60,7 @@ if (!invisible || !welcomeContainer) {
   throw new Error("there is an error with invisible or welcome container");
 }
 
-if (!modal || !modalButton || !questionContainer || !answerContainer) {
+if (!modal || !questionContainer || !answerContainer) {
   throw new Error("there is something wrong with the modal");
 }
 
@@ -118,10 +118,8 @@ const handleHTMLEncoding = (needEncoding: string[]): string[] => {
   const unescapedArray: string[] = [];
   needEncoding.forEach((string) => {
     invisible.innerHTML = string;
-    // console.log(string);
     unescapedArray.push(invisible.innerHTML);
   });
-  // console.log(unescapedArray);
   return unescapedArray;
 };
 
@@ -136,8 +134,6 @@ const sortAnswers = (question: Question) => {
   });
   answerArray.sort();
   answerArray = handleHTMLEncoding(answerArray);
-  console.log("escaped correct answer", correctAnswer);
-  console.log("escaped Answer array", answerArray);
   return answerArray;
 };
 
@@ -197,6 +193,7 @@ const endGame = () => {
 */
 
 const updateMoneyTree = () => {
+  console.log("questionIndex", questionIndex);
   moneyTreeArray[
     moneyTreeArray.length - questionIndex - 1
   ].style.backgroundColor = "purple";
@@ -248,45 +245,47 @@ const lifelineSelected = (event: Event): void => {
 
 const startGame = (): void => {
   questionIndex = 0;
+  updateMoneyTree();
   welcomeContainer.style.display = "none";
   questionContainer.style.display = "block";
-  answerContainer.style.display = "inline";
+  answerContainer.style.display = "block";
+  answerArray.forEach((answer) => {
+    answer.style.display = "block";
+  });
   lifeLineArray.forEach((lifeline) => {
     lifeline.style.display = "inline";
   });
   modal.style.display = "none";
   populateQuestionsAndAnswers(sortAnswers(questionArray[questionIndex]));
-  updateMoneyTree();
   moneyTreeArray.forEach((item) => {
     item.style.backgroundColor = "navy";
   });
-  console.log(questionArray);
   console.log(correctAnswer);
 };
 
-const nextQuestionTestMethod = (): void => {
-  nextQuestion();
-  if (questionIndex === 16) {
-    endGame();
-  }
-};
+// const nextQuestionTestMethod = (): void => {
+//   nextQuestion();
+//   if (questionIndex === 16) {
+//     endGame();
+//   }
+// };
 
-const endGameTestMethod = (): void => {
-  questionContainer.style.display = "none";
-  answerContainer.style.display = "none";
-  lifeLineArray.forEach((lifeline) => {
-    lifeline.style.display = "none";
-  });
-  modal.style.display = "block";
-};
+// const endGameTestMethod = (): void => {
+//   questionContainer.style.display = "none";
+//   answerContainer.style.display = "none";
+//   lifeLineArray.forEach((lifeline) => {
+//     lifeline.style.display = "none";
+//   });
+//   modal.style.display = "block";
+// };
 
 /*
   Event Listeners 
 */
 
-button.addEventListener("click", startGame);
-nextQuestionButton.addEventListener("click", nextQuestionTestMethod);
-modalButton.addEventListener("click", endGameTestMethod);
+startGameButton.addEventListener("click", startGame);
+// nextQuestionButton.addEventListener("click", nextQuestionTestMethod);
+// modalButton.addEventListener("click", endGameTestMethod);
 
 answerArray.forEach((button) => {
   button.addEventListener("click", answerSelected);
