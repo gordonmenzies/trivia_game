@@ -12,16 +12,21 @@
     border-radius: 10px;
 
     .endGame__text {
+      margin-left: 5%;
+      margin-right: 5%;
       background-color: blue;
       text-align: center;
       padding-top: 5px;
       padding-bottom: 5px;
       border-radius: 10px;
       color: white;
+      font-size: 20px;
     }
 
     .endGameStartAgain {
-      margin-left: 30%;
+      margin-top: 30%;
+      margin-left: 10%;
+      margin-right: 10%;
       background-color: blue;
       border: 2px solid white;
       border-radius: 5px;
@@ -39,7 +44,7 @@
     left: 15%;
     top: 15%;
     width: 60%;
-    height: 60%;
+    height: 30%;
     overflow: auto;
     background-color: purple;
     border-radius: 10px;
@@ -49,12 +54,15 @@
       text-align: center;
       padding-top: 5px;
       padding-bottom: 5px;
+      padding-right: 20%;
+      padding-left: 20%;
       border-radius: 10px;
       color: white;
     }
 
     .endGameStartAgain {
-      margin-left: 30%;
+      display: block;
+      margin: auto;
       background-color: blue;
       border: 2px solid white;
       border-radius: 5px;
