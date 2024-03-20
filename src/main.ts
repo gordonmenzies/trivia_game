@@ -159,6 +159,7 @@ const nextQuestion = (): void => {
       answer.style.display = "block";
     });
   }
+  console.log(correctAnswer);
 };
 
 // checks button selected against correct answer
