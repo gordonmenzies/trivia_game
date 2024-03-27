@@ -181,7 +181,7 @@ const endGame = () => {
   setHTMLElementsToNone();
 
   // prepare message to show at end of game
-  if (questionIndex === 14) {
+  if (questionIndex === 15) {
     endOfGameMessage.innerHTML = "CONGRATULATIONS YOU HAVE WON";
   } else if (questionIndex === 0) {
     endOfGameMessage.innerHTML = `Unfortunately you failed to answer a single question correctly. you therfore go away with nothing`;
